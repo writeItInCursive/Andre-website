@@ -1,0 +1,22 @@
+body {
+    font-family: Roboto, arial;
+    padding-top: 80px;
+    padding-left: 90px   ;
+    padding-right: 24px;
+}
+
+.video-title {
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 12px;
+}
+.video-author {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: #999595;
+}
+.video-stats {
+    font-size: 12px;
+    margin-top: 1px;
+}
