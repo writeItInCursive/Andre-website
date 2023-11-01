@@ -1,0 +1,54 @@
+#logo img {
+    width: 150px; /* Adjust to your preferred width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px; }/* Add some margin for spacing */
+    /* Top Navigation Bar Styling */
+nav {
+    background-color: #333;  /* Background Color */
+    color: #fff;  /* Text Color */
+}
+
+nav ul {
+    list-style: none;  /* Remove bullet points */
+    padding: 0;  /* Remove padding */
+    margin: 0;  /* Remove margin */
+    display: flex;  /* Use Flexbox */
+    justify-content: center;  /* Center items horizontally */
+}
+
+nav ul li {
+    font-size: 24px;  /* Increased Font size */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    flex-grow: 1;  /* Allow it to grow and consume space */
+    text-align: center;  /* Center the text */
+}
+
+nav ul li a {
+    color: #fff;  /* Link Color */
+    text-decoration: none;  /* Remove underline */
+    padding: 8px 16px;  /* Add some padding */
+    display: block;  /* Make it block to occupy the whole space */
+}
+
+/* Add hover effect */
+nav ul li a:hover {
+    background-color: #555;  /* Background Color on Hover */
+    border-radius: 4px;  /* Rounded Corners */
+}
+/* To apply Roboto font to your navigation headers */
+nav ul li {
+    font-family: 'Roboto', sans-serif; /* Roboto font with a sans-serif fallback */
+    font-size: 24px;  
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+#header-image img {
+
+    width: 100vw;
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+  
+}

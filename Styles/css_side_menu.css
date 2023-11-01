@@ -1,0 +1,39 @@
+
+/* Side Menu */
+/* Made font family consistent and removed the position:absolute */
+#side-menu {
+    font-family: 'Roboto', sans-serif;
+    width: 175px;
+    height: auto;
+    background-color: #4e2308;
+    color: white;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+/* List Style */
+#side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px; /* Margin added to align list items */
+}
+
+/* List Item Style */
+#side-menu ul li {
+    padding: 5px;
+    text-align: center;
+}
+
+/* Link Style and Hover */
+#side-menu ul li a {
+    color: white;
+    text-decoration: none;
+}
+#side-menu ul li a:hover {
+    background-color: #c29a17;
+    font-size: 22px;
+    border-radius: 10px;
+}
+
+
+
