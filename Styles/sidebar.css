@@ -5,13 +5,14 @@
             left: 0;
             top: 0;
             height: 100%;
-            background-color: #f4f4f4;
+            background-color: rgb(211, 28, 28);
             overflow-x: hidden;
             padding-top: 20px;
         }
         .sidebar a {
             padding: 10px 15px;
             text-decoration: none;
+         background-color: rgb(211, 28, 28);
             font-size: 18px;
             color: #333;
           background-color: #f4f4f4;
