@@ -5,6 +5,9 @@
     width: 100%; /* Full width */
     background-color: #333; /* Optional: background color for the top bar */
 }
+.blog{
+    margin-left:50px;
+}
 body, h1, h2, h3, p, ul, li {
  
     padding-bottom: 10px; /* Removed right padding, as it's not generally needed */
