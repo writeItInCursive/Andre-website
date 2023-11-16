@@ -1,7 +1,7 @@
  /* Sidebar Styles */
    .sidebar {
     width: 100px;
-    position: fixed; /* Change to fixed for consistent positioning */
+    position: absolute; /* Change to fixed for consistent positioning */
     left: 0;
     top: 310px; /* Adjust based on header height */
     height: calc(100vh - 110px); /* Adjust height based on header */
