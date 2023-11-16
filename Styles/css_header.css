@@ -5,6 +5,16 @@
     width: 100%; /* Full width */
     background-color: #333; /* Optional: background color for the top bar */
 }
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding-bottom: 50px; /* Removed right padding, as it's not generally needed */
+}
+
+/* Add a background color to the whole page */
+body {
+    background-color: #e0cbcb;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
+}
 
 #logo {
     display: flex; /* Use flexbox inside logo */
