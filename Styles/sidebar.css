@@ -3,8 +3,8 @@
     width: 100px;
     position: absolute; /* Change to fixed for consistent positioning */
     left: 0;
-    top: 310px; /* Adjust based on header height */
-    height: calc(100vh - 110px); /* Adjust height based on header */
+    top: 150px; /* Adjust based on header height */
+    height: calc(100vh - 150px); /* Adjust height based on header */
     overflow-x: hidden;
     padding-top: 20px;
     background-color: #e0cbcb;
