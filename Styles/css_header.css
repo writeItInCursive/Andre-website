@@ -13,7 +13,7 @@
 }
 
 #top-banner img {
-    height: 100px;
+    height: auto;
     flex-grow: 1; /* Allow banner to take the remaining space */
     object-fit: cover; /* Cover the area without losing aspect ratio */
 }
