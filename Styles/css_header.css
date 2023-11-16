@@ -3,20 +3,25 @@
     align-items: center; /* Align items vertically */
     justify-content: start; /* Start alignment horizontally */
     width: 100%; /* Full width */
-     background-color: #333; /* Optional: background color for the top bar */
+    background-color: #333; /* Optional: background color for the top bar */
 }
 
 #logo img {
-    width: 150px;
-    height: auto;
-    margin: 10px;
+    width: 150px; /* Fixed width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px; /* Add some margin for spacing */
+}
+
+#top-banner {
+    flex-grow: 1; /* Allow banner to take the remaining space */
+    display: flex; /* Use flexbox for the banner */
+    align-items: center; /* Align the banner image vertically */
 }
 
 #top-banner img {
-    height: auto;
-    width: auto;
-    flex-grow: 1; /* Allow banner to take the remaining space */
-    object-fit: contain; /* Cover the area without losing aspect ratio */
+    width: 100%; /* Full width of the banner container */
+    height: 100%; /* Full height of the banner container */
+    object-fit: cover; /* Cover the area without losing aspect ratio */
 }
 nav {
     background-color: #333;  /* Background Color */
