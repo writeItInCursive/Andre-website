@@ -6,7 +6,7 @@
     background-color: #333; /* Optional: background color for the top bar */
 }
 body, h1, h2, h3, p, ul, li {
-    margin: 0;
+    margin-left: 300px;
     padding-bottom: 50px; /* Removed right padding, as it's not generally needed */
 }
 
