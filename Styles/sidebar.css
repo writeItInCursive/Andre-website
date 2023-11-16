@@ -18,7 +18,9 @@
             display: block;
         }
         .sidebar a:hover {
-            color: #007bff;
+         background-color:#6f5d5d;
+            color: #555555;
+         
         }
         .main-content {
             margin-left: 100px; /* Adjust main content position */
