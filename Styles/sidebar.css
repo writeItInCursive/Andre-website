@@ -2,7 +2,7 @@
     width: 100px;
     position: fixed; /* Changed to fixed for consistent positioning */
     left: 0;
-    top: 150px; /* Adjusted based on the actual height of the header */
+    top: 220px; /* Adjusted based on the actual height of the header */
     height: calc(100vh - 150px); /* Adjusted height based on the header */
     overflow-x: hidden;
     padding-top: 20px;
