@@ -18,8 +18,8 @@
             display: block;
         }
         .sidebar a:hover {
-         transition: background-color 0.5s ease 0.2s; 
-         transition: color 0.5s ease 0.2s; 
+         transition: background-color 0.2s ease 0.1s; 
+         transition: color 0.2s ease 0.1s; 
          background-color:#6f5d5d;
             color: white;
          
