@@ -13,6 +13,7 @@ body, h1, h2, h3, p, ul, li {
 /* Add a background color to the whole page */
 body {
     background-color: #e0cbcb;
+    padding-left: 100px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
 }
 
