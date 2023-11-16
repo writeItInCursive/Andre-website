@@ -3,7 +3,7 @@
     width: 100px;
     position: fixed; /* Change to fixed for consistent positioning */
     left: 0;
-    top: 110px; /* Adjust based on header height */
+    top: 310px; /* Adjust based on header height */
     height: calc(100vh - 110px); /* Adjust height based on header */
     overflow-x: hidden;
     padding-top: 20px;
