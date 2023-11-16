@@ -5,6 +5,9 @@
     width: 100%; /* Full width */
     background-color: #333; /* Optional: background color for the top bar */
 }
+i-frame{
+    margin-right:15px;
+}
 main{
     margin-left:50px;
       padding-left: 100px;
