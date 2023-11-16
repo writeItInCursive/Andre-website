@@ -6,23 +6,32 @@
     background-color: #333; /* Optional: background color for the top bar */
 }
 
-#logo img {
-    width: 150px; /* Fixed width */
-    height: auto; /* Maintain aspect ratio */
+#logo {
+    display: flex; /* Use flexbox inside logo */
+    align-items: center; /* Align the logo image vertically */
     margin: 10px; /* Add some margin for spacing */
+}
+
+#logo img {
+    width: 150px; /* Fixed width for the logo */
+    height: auto; /* Maintain aspect ratio */
 }
 
 #top-banner {
     flex-grow: 1; /* Allow banner to take the remaining space */
     display: flex; /* Use flexbox for the banner */
     align-items: center; /* Align the banner image vertically */
+    height: 150px; /* Set a fixed height for the banner */
+    overflow: hidden; /* Hide the overflowed part of the banner image */
 }
 
 #top-banner img {
-    width: 100%; /* Full width of the banner container */
+    width: auto; /* Auto width for the image */
     height: 100%; /* Full height of the banner container */
+    min-width: 100%; /* Ensure it covers the container */
     object-fit: cover; /* Cover the area without losing aspect ratio */
 }
+
 nav {
     background-color: #333;  /* Background Color */
     color: #fff;  /* Text Color */
