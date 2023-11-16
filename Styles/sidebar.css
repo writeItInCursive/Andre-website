@@ -1,12 +1,13 @@
  /* Sidebar Styles */
-        .sidebar {
-            width: 100px;
-            position: absolute;
-            left: 0;
-            top: 110px;
-            height: 100vh;
-            overflow-x: hidden;
-            padding-top: 200px;
+   .sidebar {
+    width: 100px;
+    position: fixed; /* Change to fixed for consistent positioning */
+    left: 0;
+    top: 110px; /* Adjust based on header height */
+    height: calc(100vh - 110px); /* Adjust height based on header */
+    overflow-x: hidden;
+    padding-top: 20px;
+    background-color: #e0cbcb;
         }
         .sidebar a {
             padding: 10px 15px;
