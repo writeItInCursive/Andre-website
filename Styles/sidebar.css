@@ -3,7 +3,7 @@
             width: 100px;
             position: absolute;
             left: 0;
-            top: 0;
+            top: 100px;
             height: 100vh;
             overflow-x: hidden;
             padding-top: 20px;
