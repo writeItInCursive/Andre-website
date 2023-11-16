@@ -1,30 +1,30 @@
- /* Sidebar Styles */
-   .sidebar {
+.sidebar {
     width: 100px;
-    position: absolute; /* Change to fixed for consistent positioning */
+    position: fixed; /* Changed to fixed for consistent positioning */
     left: 0;
-    top: 150px; /* Adjust based on header height */
-    height: calc(100vh - 150px); /* Adjust height based on header */
+    top: 150px; /* Adjusted based on the actual height of the header */
+    height: calc(100vh - 150px); /* Adjusted height based on the header */
     overflow-x: hidden;
     padding-top: 20px;
     background-color: #e0cbcb;
-        }
-        .sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 18px;
-         font-family: 'Roboto', sans-serif; 
-            color: #333;
-          background-color:#e0cbcb;
-            display: block;
-        }
-        .sidebar a:hover {
-         transition: background-color 0.2s ease 0.1s; 
-         transition: color 0.2s ease 0.1s; 
-         background-color:#6f5d5d;
-            color: white;
-         
-        }
-        .main-content {
-            margin-left: 100px; /* Adjust main content position */
-        }
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #e0cbcb;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #6f5d5d;
+    color: white;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main-content {
+    margin-left: 100px; /* This pushes the main content to the right, away from the sidebar */
+}
