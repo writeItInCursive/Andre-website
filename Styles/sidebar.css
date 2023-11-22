@@ -20,7 +20,7 @@
 }
 
 .sidebar a:hover {
-    background-color: #6f5d5d;
+    background-color:  #a0d8cd;
     color: white;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
