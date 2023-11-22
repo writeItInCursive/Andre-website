@@ -6,7 +6,7 @@
     height: calc(100vh - 150px); /* Adjusted height based on the header */
     overflow-x: hidden;
     padding-top: 20px;
-    background-color: #D8CDA0;
+    background-color: #a0d8cd;
 }
 
 .sidebar a {
