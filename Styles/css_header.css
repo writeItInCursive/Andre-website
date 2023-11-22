@@ -82,6 +82,7 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #a0d8cd;  /* Background Color on Hover */
     border-radius: 5px;  /* Rounded Corners */
+      transition: background-color 0.2s ease, color 0.2s ease;
 }
 /* To apply Roboto font to your navigation headers */
 nav ul li {
