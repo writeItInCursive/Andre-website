@@ -9,12 +9,13 @@ iframe{
     margin-right:15px;
 }
 main{
+    background-color:#D8CDA0;
     margin-left:50px;
       padding-left: 100px;
 }
 
 body, h1, h2, h3, p, ul, li {
- 
+  background-color:#D8CDA0;
     padding-bottom: 10px; /* Removed right padding, as it's not generally needed */
 }
 
