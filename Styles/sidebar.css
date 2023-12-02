@@ -1,6 +1,6 @@
 .sidebar {
     width: 100px;
-    position: fixed; /* Changed to fixed for consistent positioning */
+    position: absolute; /* Changed to fixed for consistent positioning */
     left: 0;
     top: 240px; /* Adjusted based on the actual height of the header */
     height: calc(100vh - 150px); /* Adjusted height based on the header */
