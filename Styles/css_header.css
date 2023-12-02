@@ -81,7 +81,7 @@ nav ul li a {
 
 /* Add hover effect */
 nav ul li a:hover {
-    background-color: 	#d8b1a0;  /* Background Color on Hover */
+    background-color: 	 #a0d8cd;  /* Background Color on Hover */
     border-radius: 5px;  /* Rounded Corners */
       transition: background-color 0.2s ease, color 0.2s ease;
 }
