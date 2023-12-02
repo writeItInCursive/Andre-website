@@ -3,7 +3,7 @@
     align-items: center; /* Align items vertically */
     justify-content: start; /* Start alignment horizontally */
     width: 100%; /* Full width */
-    background-color: #333; /* Optional: background color for the top bar */
+    background-color: #2e414d; /* Optional: background color for the top bar */
 }
 iframe{
     margin-right:15px;
@@ -81,7 +81,7 @@ nav ul li a {
 
 /* Add hover effect */
 nav ul li a:hover {
-    background-color: 	 #a0d8cd;  /* Background Color on Hover */
+    background-color: 	 #2e414d;  /* Background Color on Hover */
     border-radius: 5px;  /* Rounded Corners */
       transition: background-color 0.2s ease, color 0.2s ease;
 }
