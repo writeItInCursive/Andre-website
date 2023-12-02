@@ -4,6 +4,7 @@
     justify-content: start; /* Start alignment horizontally */
     width: 100%; /* Full width */
     background-color: #2e414d; /* Optional: background color for the top bar */
+    color:#fff;
 }
 iframe{
     margin-right:15px;
