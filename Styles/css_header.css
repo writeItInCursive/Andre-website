@@ -68,7 +68,7 @@ nav ul {
 
 nav ul li {
     font-size: 24px;  /* Increased Font size */
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Roboto, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     flex-grow: 1;  /* Allow it to grow and consume space */
     text-align: center;  /* Center the text */
 }
