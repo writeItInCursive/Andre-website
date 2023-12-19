@@ -20,12 +20,6 @@ main{
     padding-bottom: 10px; /* Removed right padding, as it's not generally needed */
 }
 
-/* Add a background color to the whole page */
- ul, li {
-    background-color: #6C6650;
-  
-    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
-}
 
 #logo {
     display: flex; /* Use flexbox inside logo */
