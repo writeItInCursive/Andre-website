@@ -80,13 +80,7 @@ nav ul li a {
     display: block;  /* Make it block to occupy the whole space */
 }
 
-/* Add hover effect */
-nav ul li a:hover {
-    background-color: 	 #2e414d;  /* Background Color on Hover */
-    border-radius: 5px;  /* Rounded Corners */
-    color:white;
-      transition: background-color 0.2s ease, color 0.2s ease;
-}
+
 /* To apply Roboto font to your navigation headers */
 nav ul li {
     font-family: 'Roboto', sans-serif; /* Roboto font with a sans-serif fallback */
@@ -103,4 +97,20 @@ nav ul li {
     height: 300px;
     object-fit: cover;
   
+}
+*************************
+nav ul li a:link, nav ul li a:visited {
+    color: white ;
+}
+nav ul li a:hover {
+    background-color: 	 #2e414d;  /* Background Color on Hover */
+    border-radius: 5px;  /* Rounded Corners */
+    color:white;
+      transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav ul li a:active {
+    background-color: #3498db;
+    transition: background-color 0.3s ease;
+    /* Styles for when the link is clicked, if you want it to be different */
 }
