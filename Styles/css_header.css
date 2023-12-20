@@ -60,46 +60,36 @@ main{
   
 }
 
-nav ul li {
+nav ul {
     list-style: none;  /* Remove bullet points */
     padding: 0;  /* Remove padding */
     margin: 0;  /* Remove margin */
     display: flex;  /* Use Flexbox */
     justify-content: center;  /* Center items horizontally */
+    background-color: #333;  /* Background Color for the entire list */
 }
 
-
-
-nav ul li a {
-   
-    text-decoration: none;  /* Remove underline */
-    padding: 8px 16px;  /* Add some padding */
-    display: block;  /* Make it block to occupy the whole space */
-}
-
-
-
-  
 nav ul li {
     font-family: 'Roboto', sans-serif; /* Roboto font with a sans-serif fallback */
     font-size: 24px;  
-    flex-grow: 1;
-    text-align: center;
-      background-color: #333;  /* Background Color */
+    flex-grow: 1; /* Allow it to grow and consume space */
+    text-align: center; /* Center the text */
+    padding: 8px 16px; /* Add some padding */
 }
 
-nav ul li a:link, nav ul li a:visited {
-    color: white ;
+nav ul li a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Text color */
 }
+
 nav ul li a:hover {
-    background-color: 	 #2e414d;  /* Background Color on Hover */
-    border-radius: 5px;  /* Rounded Corners */
-    color:white;
-      transition: background-color 0.2s ease, color 0.2s ease;
+    background-color: #2e414d; /* Background Color on Hover */
+    border-radius: 5px; /* Rounded Corners */
+    color: white;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 nav ul li a:active {
     background-color: #3498db;
     transition: background-color 0.3s ease;
-    /* Styles for when the link is clicked, if you want it to be different */
 }
