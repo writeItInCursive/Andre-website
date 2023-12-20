@@ -84,6 +84,13 @@ nav ul li a {
     object-fit: cover;
   
 }
+nav ul li {
+    font-family: 'Roboto', sans-serif; /* Roboto font with a sans-serif fallback */
+    font-size: 24px;  
+    flex-grow: 1;
+    text-align: center;
+      background-color: #333;  /* Background Color */
+}
 
 nav ul li a:link, nav ul li a:visited {
     color: white ;
