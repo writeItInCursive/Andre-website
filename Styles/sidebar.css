@@ -5,6 +5,7 @@
     top: 240px; /* Adjusted based on the actual height of the header */
     height: calc(100vh - 150px); /* Adjusted height based on the header */
     overflow-x: hidden;
+     overflow-y: hidden; /* Hide vertical scrollbar */
     padding-top: 20px;
     background-color:#D8CDA0;
 }
