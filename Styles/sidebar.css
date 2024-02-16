@@ -1,5 +1,5 @@
 .sidebar {
-    width: 100px;
+    width: 150px;
     position: absolute; /* Changed to fixed for consistent positioning */
     left: 0;
     top: 240px; /* Adjusted based on the actual height of the header */
