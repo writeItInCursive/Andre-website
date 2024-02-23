@@ -57,6 +57,52 @@
 
     <main id="main-content" style="margin-left: 50px;">
         <!-- Main Content -->
+            <p>Creating a cheat sheet for advanced Excel functions, including <code>XLOOKUP</code>, <code>COUNTIFS</code>, <code>SUMIFS</code>, <code>AND</code>/<code>OR</code>, and how to use Tables and Slicers, can be very helpful for your website visitors. Below is a concise guide to these features. You might want to format this content appropriately (e.g., with proper styling and tables) when adding it to your website.</p>
+<hr>
+<h2 id="excel-cheat-sheet-for-advanced-functions">Excel Cheat Sheet for Advanced Functions</h2>
+<h3 id="xlookup">XLOOKUP</h3>
+<p><code>XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])</code></p>
+<ul>
+<li><strong>Purpose</strong>: Searches a range or an array, and returns an item corresponding to the first match it finds. If a match doesn&#39;t exist, it can return an optional default value.</li>
+<li><strong>Example</strong>: <code>=XLOOKUP(&quot;Apple&quot;, A2:A5, B2:B5, &quot;Not Found&quot;)</code> looks for &quot;Apple&quot; in the range A2:A5 and returns the corresponding value from B2:B5.</li>
+</ul>
+<h3 id="countifs">COUNTIFS</h3>
+<p><code>COUNTIFS(criteria_range1, criteria1, [criteria_range2, criteria2], ...)</code></p>
+<ul>
+<li><strong>Purpose</strong>: Counts the number of cells that meet multiple criteria across multiple ranges.</li>
+<li><strong>Example</strong>: <code>=COUNTIFS(A2:A5, &quot;&gt;10&quot;, B2:B5, &quot;&lt;20&quot;)</code> counts cells where values in A2:A5 are greater than 10 and corresponding values in B2:B5 are less than 20.</li>
+</ul>
+<h3 id="sumifs">SUMIFS</h3>
+<p><code>SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)</code></p>
+<ul>
+<li><strong>Purpose</strong>: Sums cells in a range that meet multiple criteria across multiple ranges.</li>
+<li><strong>Example</strong>: <code>=SUMIFS(B2:B5, A2:A5, &quot;&gt;10&quot;, C2:C5, &quot;&lt;20&quot;)</code> sums values in B2:B5 where corresponding values in A2:A5 are greater than 10 and in C2:C5 are less than 20.</li>
+</ul>
+<h3 id="and-or">AND/OR</h3>
+<ul>
+<li><strong>AND(logical1, [logical2], ...)</strong><ul>
+<li><strong>Purpose</strong>: Returns TRUE if all arguments are TRUE.</li>
+<li><strong>Example</strong>: <code>=AND(A2&gt;10, B2&lt;5)</code> returns TRUE if A2 is greater than 10 and B2 is less than 5.</li>
+</ul>
+</li>
+<li><strong>OR(logical1, [logical2], ...)</strong><ul>
+<li><strong>Purpose</strong>: Returns TRUE if any arguments are TRUE.</li>
+<li><strong>Example</strong>: <code>=OR(A2&gt;10, B2&lt;5)</code> returns TRUE if either A2 is greater than 10 or B2 is less than 5.</li>
+</ul>
+</li>
+</ul>
+<h3 id="tables">Tables</h3>
+<ul>
+<li><strong>Creating a Table</strong>: Select your data range and press <code>Ctrl + T</code>. This converts the range into a table, offering features like sorting, filtering, and structured references.</li>
+<li><strong>Structured Reference</strong>: When you use formulas within a table, Excel uses structured references that are easier to understand. For example, <code>=SUM(Table1[Sales])</code> sums all the values in the &quot;Sales&quot; column of &quot;Table1&quot;.</li>
+</ul>
+<h3 id="slicers">Slicers</h3>
+<ul>
+<li><strong>Purpose</strong>: Slicers are visual filters for tables, pivot tables, and pivot charts. They allow for a quick and easy way to filter data.</li>
+<li><strong>Creating a Slicer</strong>: Click anywhere inside your table, go to the <code>Table Design</code> tab, and select <code>Insert Slicer</code>. Choose the column you want to filter by.</li>
+<li><strong>Usage</strong>: Click on the items in the slicer to filter your table or pivot table data based on those items.</li>
+</ul>
+
         <!-- Your main content -->
     </main>
 
