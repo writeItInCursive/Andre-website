@@ -184,23 +184,28 @@
             <button onclick="runPython()">Run Python</button>
             <pre id="pythonOutput"></pre>
         </section>
-        
         <!-- Load Pyodide (Python for the browser) -->
-        <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
-        <script>
-            async function runPython() {
-                let outputElement = document.getElementById("pythonOutput");
-                let code = document.getElementById("pythonCode").value;
-                
-                try {
-                    let pyodide = await loadPyodide();
-                    let result = pyodide.runPython(code);
-                    outputElement.textContent = result;
-                } catch (error) {
-                    outputElement.textContent = "Error: " + error.message;
-                }
-            }
-        </script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
+<script>
+    let pyodideReady = (async () => {
+        let pyodide = await loadPyodide();
+        return pyodide;
+    })();
+
+    async function runPython() {
+        let outputElement = document.getElementById("pythonOutput");
+        let code = document.getElementById("pythonCode").value;
+        
+        try {
+            let pyodide = await pyodideReady;
+            let result = pyodide.runPython(code);
+            outputElement.textContent = result;
+        } catch (error) {
+            outputElement.textContent = "Error: " + error.message;
+        }
+    }
+</script>
+
     </main>
 </body>
 </html>
