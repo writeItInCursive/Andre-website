@@ -1,187 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Tags for Basic Info and Responsiveness -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Link to your CSS files -->
-    <link rel="stylesheet" href="Styles/css_header.css">
- 
-    <link rel="stylesheet" href="Styles/sidebar.css">
-
-
-    <title>Andre's website for creation and growth</title>
+    <title>Andre's Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-          <div class="header-top">
-            <div id="logo">
-                <img src="Thumbnails/Wlogo3.png" alt="Your Logo">
-            </div>
-            <div id="top-banner">
-                <img src="Thumbnails/blueMetal.jpg" alt="Banner">
-            </div>
-        </div>
-            <nav>
-                <ul>
-                    <li><a href="dre.html">Home</a></li>
-                    <li><a href="test.html">Andre's test page</a></li>
-                    <li><a href="mytube.html">Wallace Consortium</a></li>
-                    <li><a href="ai.html">AIs</a></li>
-                    <li><a href="duke.html">Duke</a></li>
-                    <li><a href="skye.html">Skye</a></li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="logo"><img src="Thumbnails/Wlogo3.png" alt="Logo"></div>
+        <nav>
+            <ul>
+                <li><a href="dre.html">Home</a></li>
+                <li><a href="test.html">Andre's Test Page</a></li>
+                <li><a href="mytube.html">Wallace Consortium</a></li>
+                <li><a href="ai.html">AIs</a></li>
+                <li><a href="duke.html">Duke</a></li>
+                <li><a href="skye.html">Skye</a></li>
+            </ul>
+        </nav>
     </header>
-    <!-- Header Section Ends -->
 
-    <!-- Sidebar Section -->
-    <div class="sidebar">
-        <!-- Sidebar Links -->
-      
-       
-        <a href="https://writeitincursive.github.io/Andre-website/dre.html" ><b>HOME</b></a> 
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <button id="toggleSidebar">☰</button>
+        <a href="dre.html"><b>HOME</b></a>
         <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
-          <a href="https://www.youtube.com/" target="_blank">YouTube</a>
-        <a href="https://www.w3schools.com/" target="_blank">W3School</a>
-        <a href="https://www.jeffsu.org/" target="_blank">Jeff Su</a>
-           <a href="https://www.color-hex.com/" target="_blank">Colors</a>
-        <a href="https://libbyapp.com/shelf" target="_blank">Libby</a>           
-        <a href="https://github.com/writeItInCursive/Andre-website/blob/main/dre.html" target="_blank">GitHub</a>
-        <a href="https://gptstore.ai/"target="_blank">GPT Store</a>
-        <a href="https://google.com" target="_blank">Google</a>
-        <a href="https://www.office.com/"target="_blank">Office 365</a>
-          <a href="https://www.netflix.com/login"target="_blank">Netflix</a>
-          <a href="https://www.ebay.com/"target="_blank">Ebay</a>
-          <a href="https://www.amazon.com/"target="_blank">Amazon</a>
-        <a href="https://www.wikipedia.org/"target="_blank">Wikipedia</a>
-        <a href="https://www.reddit.com/"target="_blank">Reddit</a>
-       <a href="https://markdowntohtml.com/"target="_blank">Markdown to HTML</a>
-            <a href="https://open.spotify.com/?"target="_blank">Spotify</a>
-          <a href=" https://supersimpledev.github.io/references/html-css-reference.pdf"target="_blank">CSS/HTML reference</a>
+        <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+        <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+        <a href="https://github.com/writeItInCursive/Andre-website" target="_blank">GitHub Repo</a>
+        <a href="https://www.office.com/" target="_blank">Office 365</a>
+        <a href="https://www.amazon.com/" target="_blank">Amazon</a>
+        <a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>
+        <a href="https://open.spotify.com/" target="_blank">Spotify</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <section class="dashboard">
+            <h2>🌌 Welcome to Your Dashboard 🚀</h2>
+            <p>Access your favorite tools, test code, and explore new ideas.</p>
+        </section>
         
-  
-    </div>
-   <!-- Main Content Section -->
-<main>
-    <!-- Logo Placement -->
-
-   <!-- Blog Section -->
-    <section id="blog">
-       
-
-        <h2>🌌 February 2024 moving into March 2024 🤖</h2>
-        <p>👋 Items to learn this month:
-    
-        <br> Python , SQL , HTML/CSS review , Meditation , Physical Activity</p>
-        
-        <h3>🔍 What's New in my World? time to get in shape....Mentally and Physically. Let's start with learning Python!</h3>
-
-
-        <h3 id="introduction-to-python-programming">Introduction to Python Programming</h3>
-<p>Welcome to your first steps into the Python programming world! Python is a powerful, easy-to-learn programming language used for various applications, from web development to data analysis and artificial intelligence. Let&#39;s dive into some of the basics to get you started: variables, basic functions, and conditional statements.</p>
-<h4 id="variables-in-python">Variables in Python</h4>
-<p>Variables are the building blocks of any programming language, allowing you to store data that your program can manipulate. In Python, creating a variable is simple. You just assign a value to a name, like so:</p>
-<pre><code class="lang-python"><span class="hljs-attr">Skye_Age</span> = <span class="hljs-number">10</span>
-<span class="hljs-attr">Age_at_Kindergarten</span> = <span class="hljs-number">5</span>
-</code></pre>
-<p>Here, <code>Skye_Age</code> and <code>Age_at_Kindergarten</code> are variables. <code>Skye_Age</code> is set to <code>10</code>, representing Skye&#39;s age, and <code>Age_at_Kindergarten</code> is set to <code>5</code>, the typical age for starting kindergarten.</p>
-<h4 id="basic-functions">Basic Functions</h4>
-<p>Python functions are blocks of code that perform a specific task. The <code>print()</code> function is one of the simplest yet most useful functions in Python. It outputs data to the terminal. For example:</p>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"Hello, world!"</span>)</span></span>
-</code></pre>
-<p>This line prints the text <code>Hello, world!</code> to your screen.</p>
-<h4 id="conditional-statements">Conditional Statements</h4>
-<p>Conditional statements allow your program to execute different actions based on certain conditions. Python uses <code>if</code>, <code>elif</code> (else if), and <code>else</code> for conditional logic. Here&#39;s a basic example:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">if</span> Skye_Age &lt; Age_at_Kindergarten:
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Skye just a baby"</span>)
-<span class="hljs-keyword">elif</span> Skye_Age == Age_at_Kindergarten:
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Skye in Kindergarten"</span>)
-<span class="hljs-keyword">else</span>:
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Skye out of Kindergarten...she old now"</span>)
-</code></pre>
-<p>This code checks Skye&#39;s age and prints a message based on how it compares to the <code>Age_at_Kindergarten</code>. </p>
-<ul>
-<li>If <code>Skye_Age</code> is less than <code>Age_at_Kindergarten</code>, it prints <code>&quot;Skye just a baby&quot;</code>.</li>
-<li>If <code>Skye_Age</code> is equal to <code>Age_at_Kindergarten</code>, it prints <code>&quot;Skye in Kindergarten&quot;</code>.</li>
-<li>Otherwise, it prints <code>&quot;Skye out of Kindergarten...she old now&quot;</code>.</li>
-</ul>
-<h4 id="running-python-code-in-the-terminal">Running Python Code in the Terminal</h4>
-<p>To run your Python program, save your code in a file with a <code>.py</code> extension, for example, <code>my_program.py</code>. Then, open your terminal or command prompt, navigate to the folder where your file is located, and run:</p>
-<pre><code class="lang-bash"><span class="hljs-keyword">python</span> my_program.<span class="hljs-keyword">py</span>
-</code></pre>
-<p>This command tells Python to execute the code in <code>my_program.py</code>. If you&#39;ve followed the example above, you&#39;ll see the message printed based on the conditions defined in your code.</p>
-<h4 id="tweaking-the-program">Tweaking the Program</h4>
-<p>Experimenting with your code is a great way to learn. Try changing the values of <code>Skye_Age</code> and <code>Age_at_Kindergarten</code> and see how the output changes. You can also add more conditions using <code>elif</code> to handle different scenarios, like adding a check for when Skye is in first grade.</p>
-<hr>
-<p>This introduction is designed to get you started with Python programming. As you become more comfortable with these basics, you&#39;ll be ready to explore more complex concepts and build your own Python programs. Happy coding!</p>
-
-<br>
-        <iframe width="982" height="480" src="https://www.youtube.com/embed/NpmFbWO6HPU" title="9 HOURS of Python Projects - From Beginner to Advanced" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        
-<br>
-<h3 id="how-to-perform-the-blessing-of-the-energy-centers-meditation">How to Perform the Blessing of the Energy Centers Meditation</h3>
-<p>The Blessing of the Energy Centers meditation by Dr. Joe Dispenza is designed to harmonize and balance the body&#39;s energy centers or chakras. Here&#39;s a detailed guide on how to perform this meditation:</p>
-<ol>
-<li><p><strong>Find a Quiet Space</strong>: Choose a quiet, comfortable place where you won&#39;t be disturbed. Sit down in a comfortable position, either on a chair with your feet flat on the ground and hands resting on your lap, or on the floor in a cross-legged position.</p>
-</li>
-<li><p><strong>Begin with Deep Breaths</strong>: Close your eyes and take some deep, slow breaths. Inhale through your nose and exhale through your mouth. This helps to relax your body and mind, preparing you for meditation.</p>
-</li>
-<li><p><strong>Focus on the First Energy Center</strong>: Bring your attention to the first energy center located at the base of your spine (the root chakra). Visualize a sphere of energy in this location. This energy center is associated with the color red. Focus on feeling grounded and secure.</p>
-</li>
-<li><p><strong>Bless the First Energy Center</strong>: With your attention on the first energy center, mentally or verbally express intentions or blessings for this center. You might focus on health, stability, or safety, envisioning this energy center glowing brightly with health and balance.</p>
-</li>
-<li><p><strong>Move Up to the Second Center</strong>: Shift your focus to the second energy center, located just below the navel (the sacral chakra). This center is associated with the color orange. Here, you might focus on creativity, emotional balance, and sexuality. Bless this center with intentions for harmony and wellbeing.</p>
-</li>
-<li><p><strong>Continue to Each Subsequent Center</strong>:</p>
-<ul>
-<li><strong>Third Center</strong>: Solar Plexus (yellow) - Focus on personal power, self-esteem, and confidence.</li>
-<li><strong>Fourth Center</strong>: Heart (green) - Concentrate on love, compassion, and healing.</li>
-<li><strong>Fifth Center</strong>: Throat (blue) - Focus on communication, truth, and self-expression.</li>
-<li><strong>Sixth Center</strong>: Third Eye (indigo) - Concentrate on intuition, insight, and wisdom.</li>
-<li><strong>Seventh Center</strong>: Crown (violet) - Focus on spirituality, consciousness, and connection to the divine.</li>
-</ul>
-</li>
-<li><p><strong>Visualize Energy Flowing</strong>: As you bless each energy center, visualize a flow of energy moving up from the base of your spine to the crown of your head, connecting and harmonizing all the centers. Imagine this energy as a stream of light, cleansing and balancing each center.</p>
-</li>
-<li><p><strong>Conclude with Gratitude</strong>: After you&#39;ve moved through all the energy centers, spend a few moments in gratitude. Thank the universe or your higher power for this meditative experience and for the balance and harmony brought to your energy centers.</p>
-</li>
-<li><p><strong>Gently Return</strong>: When you&#39;re ready, bring your awareness back to your body. Wiggle your fingers and toes, and when you feel ready, open your eyes.</p>
-</li>
-</ol>
-<p>This meditation can be performed daily or as often as you feel necessary to maintain balance and harmony within your energy centers. It&#39;s a powerful practice for promoting overall wellbeing, reducing stress, and enhancing your connection to your inner self and the universe.</p>
-<p>The image provided visualizes the serene and meditative environment ideal for such a practice, with the alignment of the energy centers or chakras visualized along the spine.</p>
-<div>   
-    <img src="Thumbnails/meditation_chakras.png" alt="Blog Post Image" style="width:200px; height:220px;">
-</div>
-            Simple, but the complexity is in the simplicity which makes it an infinite loop. Reset the code. Upgrade the software.</h3>
-        <!-- Embedded Iframe for GPT Development Videos -->
-       <div>
-         <h3>Hot videos!!!! </h3>
-<iframe width="440" height="360" src="https://www.youtube.com/embed/Kvoq4luIYVc" title="5 Minute Full Body Stretch | Total Body Yoga" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-           <iframe width="440" height="360" src="https://www.youtube.com/embed/tW13N4Hll88" title="The ONLY Candlestick Pattern Guide You&#39;ll EVER NEED" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
-        <iframe width="440" height="360" src="https://www.youtube.com/embed/TpOIGij43AA" title="The Ultimate Excel Tutorial - Beginner to Advanced - 5 Hours!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>   
-      <iframe width="440" height="360" src="https://www.youtube.com/embed/egmzpMBmH70" title="Excel for Business Analysts Crash Course (XLOOKUP, IF, Forecast Sheets &amp; More!)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <iframe width="440" height="360" src="https://www.youtube.com/embed/_uQrJ0TkZlc" title="Python Tutorial - Python Full Course for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <iframe width="440" height="360" src="https://www.youtube.com/embed/0yTSbzBsEtM" title="How to use Microsoft Access - Beginners Course (Deep Dive)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-       </div>
-        <p>🌟 Stay tuned as we continue to explore these groundbreaking technologies and their impact on our world. </p>
-          <p>🌟 Now watch some fun hand picked videos above </p>
-    </section>
-    <section id="ai-prompts">
-    </section>
-</main>
-
-    <!-- Blog, Gallery, Food, AI Prompts will go here -->
-
-    <!-- Side Menu Section -->
-    <!-- Quick links and popular posts will go here -->
-
-    <!-- Footer Section -->
-    <!-- CTA and other footer elements will go here -->
-
+        <!-- Code Editor Section -->
+        <section class="code-editor">
+            <h3>Live Code Editor</h3>
+            <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
+            <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
+            <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
+            <button onclick="runCode()">Run Code</button>
+            <iframe id="output"></iframe>
+        </section>
+    </main>
 </body>
 </html>
