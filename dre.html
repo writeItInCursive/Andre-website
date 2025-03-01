@@ -18,7 +18,7 @@
             flex-direction: column;
             font-size: 20px;
         }
-        
+
         /* Top Navigation Bar */
         .top-nav {
             display: flex;
@@ -38,13 +38,6 @@
             height: auto;
         }
 
-        /* Hero Banner */
-        .banner img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
         /* Sidebar Navigation */
         .sidebar {
             position: fixed;
@@ -53,7 +46,6 @@
             width: 240px;
             height: 100vh;
             background: linear-gradient(180deg, #fb4f14, #000000);
-            background-size: cover;
             display: flex;
             flex-direction: column;
             padding-top: 15px;
@@ -138,11 +130,6 @@
         <div class="logo"><img src="Thumbnails/Wlogo3.png" alt="Logo"></div>
     </header>
 
-    <!-- Hero Banner -->
-    <div class="banner">
-        <img src="https://source.unsplash.com/1600x400/?technology,abstract" alt="Banner">
-    </div>
-
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
         <button id="toggleSidebar">☰</button>
@@ -156,5 +143,66 @@
         <a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>
         <a href="https://open.spotify.com/" target="_blank">Spotify</a>
     </aside>
+
+    <!-- Main Content -->
+    <main>
+        <section class="dashboard">
+            <h2>🌟 Welcome to Your Dashboard 🚀</h2>
+            <p>Access your favorite tools, test code, and explore new ideas.</p>
+        </section>
+
+        <!-- HTML, CSS, JS Code Editor -->
+        <section class="code-editor">
+            <h3>Live Code Editor</h3>
+            <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
+            <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
+            <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
+            <button onclick="runCode()">Run Code</button>
+            <iframe id="output"></iframe>
+        </section>
+
+        <!-- Python Code Editor -->
+        <section class="code-editor">
+            <h3>Python Code Editor</h3>
+            <textarea id="pythonCode" placeholder="Write Python here..."></textarea>
+            <button onclick="runPython()">Run Python</button>
+            <pre id="pythonOutput"></pre>
+        </section>
+    </main>
+
+    <!-- JavaScript for Code Execution -->
+    <script>
+        function runCode() {
+            let htmlCode = document.getElementById("htmlCode").value;
+            let cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
+            let jsCode = "<script>" + document.getElementById("jsCode").value + "<\\/script>";
+
+            let output = document.getElementById("output").contentWindow.document;
+            output.open();
+            output.write(htmlCode + cssCode + jsCode);
+            output.close();
+        }
+    </script>
+
+    <!-- Load Pyodide (Python for the browser) -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
+    <script>
+        async function loadPyodideRuntime() {
+            window.pyodide = await loadPyodide();
+        }
+        loadPyodideRuntime();
+
+        async function runPython() {
+            let code = document.getElementById("pythonCode").value;
+            let outputElement = document.getElementById("pythonOutput");
+            
+            try {
+                let result = await window.pyodide.runPython(code);
+                outputElement.textContent = result;
+            } catch (error) {
+                outputElement.textContent = "Error: " + error.message;
+            }
+        }
+    </script>
 </body>
 </html>
