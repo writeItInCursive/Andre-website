@@ -177,10 +177,21 @@
     <!-- Main Content -->
     <main>
         <section class="dashboard">
-            <h2>🌟 Welcome to Your Dashboard 🚀</h2>
+            <h2>🌟 DreDay's Dashboard 🚀</h2>
             <p>Access your favorite tools, test code, and explore new ideas.</p>
         </section>
-        
+        <script>
+    function runCode() {
+        let htmlCode = document.getElementById("htmlCode").value;
+        let cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
+        let jsCode = "<script>" + document.getElementById("jsCode").value + "<\/script>";
+
+        let output = document.getElementById("output").contentWindow.document;
+        output.open();
+        output.write(htmlCode + cssCode + jsCode);
+        output.close();
+    }
+</script>
         <!-- Code Editor Section -->
         <section class="code-editor">
             <h3>Live Code Editor</h3>
