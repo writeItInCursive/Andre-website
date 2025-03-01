@@ -182,14 +182,12 @@
             output.write(htmlCode + cssCode + jsCode);
             output.close();
         }
-   <script>
+  <script>
     async function loadPyodideRuntime() {
         window.pyodide = await loadPyodide();
+        console.log("✅ Pyodide successfully loaded!");
     }
-
-    loadPyodideRuntime().then(() => {
-        console.log("✅ Pyodide has been successfully loaded!");
-    });
+    loadPyodideRuntime();
 
     async function runPython() {
         let code = document.getElementById("pythonCode").value;
@@ -201,12 +199,23 @@
         }
 
         try {
+            console.log("▶ Running Python Code:", code);
+
+            // Redirect Python's print() output to display in the output box
+            window.pyodide.runPython(`
+import sys
+from pyodide import console
+sys.stdout = sys.stderr = console.TextIO()
+            `);
+            
             let result = await window.pyodide.runPython(code);
-            outputElement.textContent = result;
+            outputElement.textContent = result || "✅ Code executed successfully, check console for print output.";
+            
         } catch (error) {
             outputElement.textContent = "❌ Error: " + error.message;
         }
     }
 </script>
+
 </body>
 </html>
