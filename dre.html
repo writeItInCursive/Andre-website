@@ -182,26 +182,31 @@
             output.write(htmlCode + cssCode + jsCode);
             output.close();
         }
-    </script>
+   <script>
+    async function loadPyodideRuntime() {
+        window.pyodide = await loadPyodide();
+    }
 
-    <!-- Load Pyodide (Python for the browser) -->
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
-    <script>
-        async function loadPyodideRuntime() {
-            window.pyodide = await loadPyodide();
-        }
-        loadPyodideRuntime();
+    loadPyodideRuntime().then(() => {
+        console.log("✅ Pyodide has been successfully loaded!");
+    });
 
-        async function runPython() {
-            let code = document.getElementById("pythonCode").value;
-            let outputElement = document.getElementById("pythonOutput");
-            try {
-                let result = await window.pyodide.runPython(code);
-                outputElement.textContent = result;
-            } catch (error) {
-                outputElement.textContent = "Error: " + error.message;
-            }
+    async function runPython() {
+        let code = document.getElementById("pythonCode").value;
+        let outputElement = document.getElementById("pythonOutput");
+
+        if (!window.pyodide) {
+            outputElement.textContent = "⚠ Pyodide is still loading. Please wait...";
+            return;
         }
-    </script>
+
+        try {
+            let result = await window.pyodide.runPython(code);
+            outputElement.textContent = result;
+        } catch (error) {
+            outputElement.textContent = "❌ Error: " + error.message;
+        }
+    }
+</script>
 </body>
 </html>
