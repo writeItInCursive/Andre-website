@@ -78,9 +78,19 @@
             background-color: rgba(0, 0, 0, 0.1);
         }
 
-        /* Code Editor Section */
-        .code-editor {
-            margin-top: 25px;
+        /* Main Content */
+        main {
+            margin-left: 260px;
+            padding: 25px;
+            padding-top: 90px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .dashboard, .code-editor {
+            flex: 1 1 45%;
+            min-width: 300px;
             background: #ffffff;
             padding: 18px;
             border-radius: 5px;
@@ -192,7 +202,6 @@
         async function runPython() {
             let code = document.getElementById("pythonCode").value;
             let outputElement = document.getElementById("pythonOutput");
-            
             try {
                 let result = await window.pyodide.runPython(code);
                 outputElement.textContent = result;
