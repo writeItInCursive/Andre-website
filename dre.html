@@ -1,58 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andre's Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="scripts.js"></script>
-</head>
-<body>
-    <!-- Top Navigation -->
-    <header class="top-nav">
-        <div class="logo"><img src="Thumbnails/Wlogo3.png" alt="Logo"></div>
-        <nav>
-            <ul>
-                <li><a href="dre.html">Home</a></li>
-                <li><a href="test.html">Andre's Test Page</a></li>
-                <li><a href="mytube.html">Wallace Consortium</a></li>
-                <li><a href="ai.html">AIs</a></li>
-                <li><a href="duke.html">Duke</a></li>
-                <li><a href="skye.html">Skye</a></li>
-            </ul>
-        </nav>
-    </header>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c2b3a;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
 
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-        <button id="toggleSidebar">☰</button>
-        <a href="dre.html"><b>HOME</b></a>
-        <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
-        <a href="https://www.youtube.com/" target="_blank">YouTube</a>
-        <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
-        <a href="https://github.com/writeItInCursive/Andre-website" target="_blank">GitHub Repo</a>
-        <a href="https://www.office.com/" target="_blank">Office 365</a>
-        <a href="https://www.amazon.com/" target="_blank">Amazon</a>
-        <a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>
-        <a href="https://open.spotify.com/" target="_blank">Spotify</a>
-    </aside>
+/* Top Navigation Bar */
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2e414d;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
 
-    <!-- Main Content -->
-    <main>
-        <section class="dashboard">
-            <h2>🌌 Welcome to Your Dashboard 🚀</h2>
-            <p>Access your favorite tools, test code, and explore new ideas.</p>
-        </section>
-        
-        <!-- Code Editor Section -->
-        <section class="code-editor">
-            <h3>Live Code Editor</h3>
-            <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
-            <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
-            <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
-            <button onclick="runCode()">Run Code</button>
-            <iframe id="output"></iframe>
-        </section>
-    </main>
-</body>
-</html>
+.top-nav .logo img {
+    width: 60px; /* Reduced logo size */
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: none; /* Hide top menu links */
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #4a6572;
+    border-radius: 5px;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 200px;
+    height: 100vh;
+    background-color: #263238;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #4a6572;
+}
+
+.sidebar a:nth-child(n+2) { /* Moves Home, ChatGPT, and others into sidebar */
+    display: block;
+}
+
+#toggleSidebar {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Main Content */
+main {
+    margin-left: 220px;
+    padding: 20px;
+    padding-top: 80px;
+    background-color: #D8CDA0;
+}
+
+.dashboard h2 {
+    color: #ffcc00;
+}
+
+/* Code Editor Section */
+.code-editor {
+    margin-top: 20px;
+    background: #2e414d;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    background: #1c2b3a;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #e0b700;
+}
+
+iframe {
+    width: 100%;
+    height: 200px;
+    background: white;
+    border: none;
+    margin-top: 10px;
+}
