@@ -191,13 +191,7 @@
         output.write(htmlCode + cssCode + jsCode);
         output.close();
     }
-            <!-- Python Code Editor Section -->
-<section class="code-editor">
-    <h3>Python Code Editor</h3>
-    <textarea id="pythonCode" placeholder="Write Python here..."></textarea>
-    <button onclick="runPython()">Run Python</button>
-    <pre id="pythonOutput"></pre>
-</section>
+           
 
 <!-- Load Pyodide (Python for the browser) -->
 <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
@@ -219,7 +213,13 @@
 </script>
         <!-- Code Editor Section -->
         <section class="code-editor">
-            <h3>Live Code Editor</h3>
+            <h3>Live Code Editor</h3> <!-- Python Code Editor Section -->
+<section class="code-editor">
+    <h3>Python Code Editor</h3>
+    <textarea id="pythonCode" placeholder="Write Python here..."></textarea>
+    <button onclick="runPython()">Run Python</button>
+    <pre id="pythonOutput"></pre>
+</section>
             <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
             <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
             <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
