@@ -151,6 +151,16 @@
             <p>Access your favorite tools, test code, and explore new ideas.</p>
         </section>
 
+        <!-- Code Editors -->
+        <section class="code-editor">
+            <h3>Live Code Editor</h3>
+            <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
+            <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
+            <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
+            <button onclick="runCode()">Run Code</button>
+            <iframe id="output"></iframe>
+        </section>
+
         <!-- Python Code Editor -->
         <section class="code-editor">
             <h3>Python Code Editor</h3>
@@ -159,6 +169,20 @@
             <pre id="pythonOutput"></pre>
         </section>
     </main>
+
+    <!-- JavaScript for Code Execution -->
+    <script>
+        function runCode() {
+            let htmlCode = document.getElementById("htmlCode").value;
+            let cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
+            let jsCode = "<script>" + document.getElementById("jsCode").value + "<\/script>";
+            
+            let output = document.getElementById("output").contentWindow.document;
+            output.open();
+            output.write(htmlCode + cssCode + jsCode);
+            output.close();
+        }
+    </script>
 
     <!-- Load Pyodide (Python for the browser) -->
     <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
@@ -171,7 +195,6 @@
         async function runPython() {
             let code = document.getElementById("pythonCode").value;
             let outputElement = document.getElementById("pythonOutput");
-            
             try {
                 let result = await window.pyodide.runPython(code);
                 outputElement.textContent = result;
