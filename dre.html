@@ -191,6 +191,31 @@
         output.write(htmlCode + cssCode + jsCode);
         output.close();
     }
+            <!-- Python Code Editor Section -->
+<section class="code-editor">
+    <h3>Python Code Editor</h3>
+    <textarea id="pythonCode" placeholder="Write Python here..."></textarea>
+    <button onclick="runPython()">Run Python</button>
+    <pre id="pythonOutput"></pre>
+</section>
+
+<!-- Load Pyodide (Python for the browser) -->
+<script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
+<script>
+    async function runPython() {
+        let code = document.getElementById("pythonCode").value;
+        let outputElement = document.getElementById("pythonOutput");
+        
+        try {
+            let pyodide = await loadPyodide();
+            let result = pyodide.runPython(code);
+            outputElement.textContent = result;
+        } catch (error) {
+            outputElement.textContent = "Error: " + error.message;
+        }
+    }
+</script>
+
 </script>
         <!-- Code Editor Section -->
         <section class="code-editor">
