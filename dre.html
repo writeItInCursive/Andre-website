@@ -182,7 +182,7 @@
             output.write(htmlCode + cssCode + jsCode);
             output.close();
         }
-  <script>
+ <script>
     async function loadPyodideRuntime() {
         window.pyodide = await loadPyodide();
         console.log("✅ Pyodide successfully loaded!");
@@ -201,21 +201,26 @@
         try {
             console.log("▶ Running Python Code:", code);
 
-            // Redirect Python's print() output to display in the output box
+            // Redirect Python's stdout to capture `print()` output
             window.pyodide.runPython(`
 import sys
-from pyodide import console
-sys.stdout = sys.stderr = console.TextIO()
+from io import StringIO
+sys.stdout = sys.stderr = output_stream = StringIO()
             `);
             
-            let result = await window.pyodide.runPython(code);
-            outputElement.textContent = result || "✅ Code executed successfully, check console for print output.";
+            // Run the actual user inputted code
+            await window.pyodide.runPython(code);
+
+            // Capture the print output and display it in the output box
+            let output = await window.pyodide.runPython("output_stream.getvalue()");
+            outputElement.textContent = output || "✅ Code executed successfully, but there was no output.";
             
         } catch (error) {
             outputElement.textContent = "❌ Error: " + error.message;
         }
     }
 </script>
+
 
 </body>
 </html>
