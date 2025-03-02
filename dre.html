@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,6 @@
             color: #222;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
             font-size: 20px;
         }
 
@@ -50,7 +48,7 @@
             flex-direction: column;
             padding-top: 15px;
             font-size: 20px;
-            box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.1);
+            transition: width 0.3s ease;
         }
 
         .sidebar a {
@@ -58,12 +56,12 @@
             color: black;
             padding: 18px;
             display: block;
-            transition: background 0.3s;
             font-weight: bold;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 5px;
             margin: 5px;
             text-align: center;
+            transition: background 0.3s;
         }
 
         .sidebar a:hover {
@@ -73,21 +71,31 @@
 
         /* Main Content */
         main {
-            margin-left: 260px;
+            margin-left: 250px;
             padding: 25px;
             padding-top: 90px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            width: calc(100% - 250px);
+            box-sizing: border-box;
+            transition: margin-left 0.3s ease, width 0.3s ease;
         }
 
+        /* Collapsible Sidebar */
+        .collapsed {
+            width: 60px;
+        }
+
+        .collapsed + main {
+            margin-left: 70px;
+            width: calc(100% - 70px);
+        }
+
+        /* Dashboard Sections */
         .dashboard, .code-editor {
-            flex: 1 1 45%;
-            min-width: 300px;
             background: #ffffff;
             padding: 18px;
             border-radius: 5px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
 
         textarea {
@@ -97,7 +105,6 @@
             color: #222;
             border: 1px solid #ddd;
             padding: 12px;
-            margin-bottom: 12px;
             font-size: 18px;
         }
 
@@ -129,10 +136,9 @@
     <header class="top-nav">
         <div class="logo"><img src="Thumbnails/Wlogo3.png" alt="Logo"></div>
     </header>
- <!-- Inspirational Quote -->
-    <div class="quote-box" id="quoteBox">Loading quote...</div>
+
     <!-- Sidebar Navigation -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
         <button id="toggleSidebar">☰</button>
         <a href="dre.html"><b>HOME</b></a>
         <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
@@ -147,33 +153,24 @@
 
     <!-- Main Content -->
     <main>
-     <!-- Live Clock Widget -->
-    <div class="widget">
-        <h3>🕒 Current Time</h3>
-        <p id="liveClock">Loading time...</p>
-    </div>
+        <!-- Live Clock Widget -->
+        <div class="widget">
+            <h3>🕒 Current Time</h3>
+            <p id="liveClock">Loading time...</p>
+        </div>
 
-    <!-- Welcome Section -->
-    <section class="dashboard">
-        <h2>🌟 Welcome to Your Dashboard 🚀</h2>
-        <p>Access your favorite tools, test code, and explore new ideas.</p>
-    </section>
-</main>
+        <!-- Welcome Section -->
+        <section class="dashboard">
+            <h2>🌟 Welcome to Your Dashboard 🚀</h2>
+            <p>Access your favorite tools, test code, and explore new ideas.</p>
+        </section>
 
-   <!-- Task Manager -->
-        <section class="task-manager">
+        <!-- Task Manager -->
+        <section class="dashboard">
             <h3>✅ Task Manager</h3>
             <input type="text" id="taskInput" placeholder="Enter a task...">
             <button onclick="addTask()">Add Task</button>
             <ul id="taskList"></ul>
-        <!-- Code Editors -->
-        <section class="code-editor">
-            <h3>Live Code Editor</h3>
-            <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
-            <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
-            <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
-            <button onclick="runCode()">Run Code</button>
-            <iframe id="output"></iframe>
         </section>
 
         <!-- Python Code Editor -->
@@ -181,23 +178,23 @@
             <h3>Python Code Editor</h3>
             <textarea id="pythonCode" placeholder="Write Python here..."></textarea>
             <button onclick="runPython()">Run Python</button>
-            <pre id="pythonOutput"></pre>
+            <pre id="pythonOutput">Python output will appear here...</pre>
         </section>
     </main>
-<script>
-        // Inspirational Quotes
-        const quotes = [
-            "Believe you can and you're halfway there.",
-            "The only way to do great work is to love what you do.",
-            "You miss 100% of the shots you don't take.",
-            "Success is not the key to happiness. Happiness is the key to success.",
-            "Do what you can, with what you have, where you are."
-        ];
-        function displayQuote() {
-            const quoteBox = document.getElementById("quoteBox");
-            quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+
+    <script>
+        // Toggle Sidebar
+        document.getElementById("toggleSidebar").addEventListener("click", function () {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("collapsed");
+        });
+
+        // Live Clock
+        function updateClock() {
+            document.getElementById("liveClock").textContent = new Date().toLocaleTimeString();
         }
-        displayQuote();
+        setInterval(updateClock, 1000);
+        updateClock();
 
         // Task Manager
         function addTask() {
@@ -206,75 +203,41 @@
             if (taskInput.value.trim() === "") return;
             
             let li = document.createElement("li");
-            li.innerHTML = `${taskInput.value} <button class="remove-task" onclick="removeTask(this)">❌</button>`;
+            li.innerHTML = `${taskInput.value} <button onclick="this.parentElement.remove()">❌</button>`;
             taskList.appendChild(li);
             taskInput.value = "";
         }
 
-        function removeTask(button) {
-            button.parentElement.remove();
+        // Load Pyodide (Python Execution)
+        async function loadPyodideRuntime() {
+            window.pyodide = await loadPyodide();
+            console.log("✅ Pyodide successfully loaded!");
         }
-    </script>
-    <!-- JavaScript for Code Execution -->
-    <script>
-        function runCode() {
-            let htmlCode = document.getElementById("htmlCode").value;
-            let cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
-            let jsCode = "<script>" + document.getElementById("jsCode").value + "<\/script>";
-            
-            let output = document.getElementById("output").contentWindow.document;
-            output.open();
-            output.write(htmlCode + cssCode + jsCode);
-            output.close();
-        }
- <script>
-    async function loadPyodideRuntime() {
-        window.pyodide = await loadPyodide();
-        console.log("✅ Pyodide successfully loaded!");
-    }
-    loadPyodideRuntime();
+        loadPyodideRuntime();
 
-    async function runPython() {
-        let code = document.getElementById("pythonCode").value;
-        let outputElement = document.getElementById("pythonOutput");
+        async function runPython() {
+            let code = document.getElementById("pythonCode").value;
+            let outputElement = document.getElementById("pythonOutput");
 
-        if (!window.pyodide) {
-            outputElement.textContent = "⚠ Pyodide is still loading. Please wait...";
-            return;
-        }
+            if (!window.pyodide) {
+                outputElement.textContent = "⚠ Pyodide is still loading. Please wait...";
+                return;
+            }
 
-        try {
-            console.log("▶ Running Python Code:", code);
-
-            // Redirect Python's stdout to capture `print()` output
-            window.pyodide.runPython(`
+            try {
+                await window.pyodide.runPython(`
 import sys
 from io import StringIO
 sys.stdout = sys.stderr = output_stream = StringIO()
-            `);
-            
-            // Run the actual user inputted code
-            await window.pyodide.runPython(code);
+                `);
 
-            // Capture the print output and display it in the output box
-            let output = await window.pyodide.runPython("output_stream.getvalue()");
-            outputElement.textContent = output || "✅ Code executed successfully, but there was no output.";
-            
-        } catch (error) {
-            outputElement.textContent = "❌ Error: " + error.message;
+                await window.pyodide.runPython(code);
+                let output = await window.pyodide.runPython("output_stream.getvalue()");
+                outputElement.textContent = output || "✅ Code executed successfully, but no output.";
+            } catch (error) {
+                outputElement.textContent = "❌ Error: " + error.message;
+            }
         }
-    }
-</script>
-<script>
-    function updateClock() {
-        const now = new Date();
-        const timeString = now.toLocaleTimeString();
-        document.getElementById("liveClock").textContent = timeString;
-    }
-    setInterval(updateClock, 1000); // Update every second
-    updateClock(); // Initialize clock
-</script>
-
-
+    </script>
 </body>
 </html>
