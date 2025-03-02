@@ -129,7 +129,8 @@
     <header class="top-nav">
         <div class="logo"><img src="Thumbnails/Wlogo3.png" alt="Logo"></div>
     </header>
-
+ <!-- Inspirational Quote -->
+    <div class="quote-box" id="quoteBox">Loading quote...</div>
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
         <button id="toggleSidebar">☰</button>
@@ -180,7 +181,37 @@
             <pre id="pythonOutput"></pre>
         </section>
     </main>
+<script>
+        // Inspirational Quotes
+        const quotes = [
+            "Believe you can and you're halfway there.",
+            "The only way to do great work is to love what you do.",
+            "You miss 100% of the shots you don't take.",
+            "Success is not the key to happiness. Happiness is the key to success.",
+            "Do what you can, with what you have, where you are."
+        ];
+        function displayQuote() {
+            const quoteBox = document.getElementById("quoteBox");
+            quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+        }
+        displayQuote();
 
+        // Task Manager
+        function addTask() {
+            let taskInput = document.getElementById("taskInput");
+            let taskList = document.getElementById("taskList");
+            if (taskInput.value.trim() === "") return;
+            
+            let li = document.createElement("li");
+            li.innerHTML = `${taskInput.value} <button class="remove-task" onclick="removeTask(this)">❌</button>`;
+            taskList.appendChild(li);
+            taskInput.value = "";
+        }
+
+        function removeTask(button) {
+            button.parentElement.remove();
+        }
+    </script>
     <!-- JavaScript for Code Execution -->
     <script>
         function runCode() {
