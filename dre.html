@@ -220,6 +220,15 @@ sys.stdout = sys.stderr = output_stream = StringIO()
         }
     }
 </script>
+<script>
+    function updateClock() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
+        document.getElementById("liveClock").textContent = timeString;
+    }
+    setInterval(updateClock, 1000); // Update every second
+    updateClock(); // Initialize clock
+</script>
 
 
 </body>
