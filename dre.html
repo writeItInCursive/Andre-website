@@ -148,7 +148,167 @@
         function runCode() {
             let htmlCode = document.getElementById("htmlCode").value;
             let cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
+            let jsCode = "<script>" + document.getElementById("jsCode").value + "<\/script>";<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andre's Dashboard</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?technology,abstract') no-repeat center center fixed;
+            background-size: cover;
+            color: #222;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(90deg, #fb4f14, #000000);
+            padding: 15px 25px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-nav .logo img {
+            width: 50px;
+            height: auto;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background: linear-gradient(180deg, #fb4f14, #000000);
+            display: flex;
+            flex-direction: column;
+            padding-top: 70px;
+            font-size: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: black;
+            padding: 18px;
+            display: block;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            margin: 5px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: black;
+            color: white;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 260px;
+            padding: 25px;
+            padding-top: 100px;
+            width: calc(100% - 260px);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .dashboard, .task-manager, .news-feed, .code-editor, .quote-box {
+            background: #ffffff;
+            padding: 18px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .quote-box {
+            font-style: italic;
+            font-size: 22px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="logo"><img src="Thumbnails/Wlogo3.png" alt="Logo"></div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <a href="dre.html"><b>HOME</b></a>
+        <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+        <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+        <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+        <a href="https://github.com/writeItInCursive/Andre-website" target="_blank">GitHub</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <section class="quote-box" id="quoteBox">Loading quote...</section>
+        
+        <section class="dashboard">
+            <h2>🌟 Welcome to Your Dashboard 🚀</h2>
+            <p>Access your favorite tools, test code, and explore new ideas.</p>
+        </section>
+
+        <!-- Task Manager -->
+        <section class="task-manager">
+            <h3>✅ Task Manager</h3>
+            <input type="text" id="taskInput" placeholder="Enter a task...">
+            <button onclick="addTask()">Add Task</button>
+            <ul id="taskList"></ul>
+        </section>
+
+        <!-- News Feed -->
+        <section class="news-feed" id="newsFeed">
+            <h3>📰 Latest News</h3>
+            <ul id="newsList">Loading news...</ul>
+        </section>
+
+        <!-- Code Editors -->
+        <section class="code-editor">
+            <h3>Live Code Editor</h3>
+            <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
+            <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
+            <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
+            <button onclick="runCode()">Run Code</button>
+            <iframe id="output"></iframe>
+        </section>
+    </main>
+
+    <script>
+        function runCode() {
+            let htmlCode = document.getElementById("htmlCode").value;
+            let cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
             let jsCode = "<script>" + document.getElementById("jsCode").value + "<\/script>";
+            
+            let output = document.getElementById("output").contentWindow.document;
+            output.open();
+            output.write(htmlCode + cssCode + jsCode);
+            output.close();
+        }
+    </script>
+</body>
+</html>
+
             
             let output = document.getElementById("output").contentWindow.document;
             output.open();
