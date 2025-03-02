@@ -47,7 +47,6 @@
             display: flex;
             flex-direction: column;
             padding-top: 15px;
-            font-size: 20px;
             transition: width 0.3s ease;
         }
 
@@ -90,7 +89,7 @@
         }
 
         /* Dashboard Sections */
-        .dashboard, .code-editor {
+        .dashboard, .code-editor, .news-feed {
             background: #ffffff;
             padding: 18px;
             border-radius: 5px;
@@ -98,37 +97,34 @@
             margin-bottom: 20px;
         }
 
-        textarea {
-            width: 100%;
-            height: 100px;
-            background: #ffffff;
-            color: #222;
-            border: 1px solid #ddd;
-            padding: 12px;
-            font-size: 18px;
+        .quote-box {
+            text-align: center;
+            font-size: 22px;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        button {
-            background-color: #ffcc00;
-            color: black;
-            border: none;
-            padding: 12px 18px;
-            cursor: pointer;
-            font-size: 20px;
+        .news-feed ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-feed li {
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .news-feed a {
+            text-decoration: none;
+            color: #fb4f14;
             font-weight: bold;
         }
 
-        button:hover {
-            background-color: #e0b700;
-        }
-
-        iframe {
-            width: 100%;
-            height: 300px;
-            background: white;
-            border: 1px solid #ddd;
-            margin-top: 12px;
-        }
     </style>
 </head>
 <body>
@@ -137,29 +133,25 @@
         <div class="logo"><img src="Thumbnails/Wlogo3.png" alt="Logo"></div>
     </header>
 
+    <!-- Inspirational Quote -->
+    <div class="quote-box" id="quoteBox">Loading quote...</div>
+
+    <!-- News Feed -->
+    <div class="news-feed">
+        <h3>📰 Latest News</h3>
+        <ul id="newsList">Loading news...</ul>
+    </div>
+
     <!-- Sidebar Navigation -->
     <aside class="sidebar" id="sidebar">
         <button id="toggleSidebar">☰</button>
         <a href="dre.html"><b>HOME</b></a>
         <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
-        <a href="https://www.youtube.com/" target="_blank">YouTube</a>
         <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
-        <a href="https://github.com/writeItInCursive/Andre-website" target="_blank">GitHub</a>
-        <a href="https://www.office.com/" target="_blank">Office 365</a>
-        <a href="https://www.amazon.com/" target="_blank">Amazon</a>
-        <a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>
-        <a href="https://open.spotify.com/" target="_blank">Spotify</a>
     </aside>
 
     <!-- Main Content -->
     <main>
-        <!-- Live Clock Widget -->
-        <div class="widget">
-            <h3>🕒 Current Time</h3>
-            <p id="liveClock">Loading time...</p>
-        </div>
-
-        <!-- Welcome Section -->
         <section class="dashboard">
             <h2>🌟 Welcome to Your Dashboard 🚀</h2>
             <p>Access your favorite tools, test code, and explore new ideas.</p>
@@ -172,14 +164,6 @@
             <button onclick="addTask()">Add Task</button>
             <ul id="taskList"></ul>
         </section>
-
-        <!-- Python Code Editor -->
-        <section class="code-editor">
-            <h3>Python Code Editor</h3>
-            <textarea id="pythonCode" placeholder="Write Python here..."></textarea>
-            <button onclick="runPython()">Run Python</button>
-            <pre id="pythonOutput">Python output will appear here...</pre>
-        </section>
     </main>
 
     <script>
@@ -189,12 +173,38 @@
             sidebar.classList.toggle("collapsed");
         });
 
-        // Live Clock
-        function updateClock() {
-            document.getElementById("liveClock").textContent = new Date().toLocaleTimeString();
+        // Inspirational Quotes
+        const quotes = [
+            "Believe you can and you're halfway there.",
+            "The only way to do great work is to love what you do.",
+            "You miss 100% of the shots you don't take.",
+            "Success is not the key to happiness. Happiness is the key to success.",
+            "Do what you can, with what you have, where you are."
+        ];
+        function displayQuote() {
+            const quoteBox = document.getElementById("quoteBox");
+            quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
         }
-        setInterval(updateClock, 1000);
-        updateClock();
+        displayQuote();
+
+        // Fetch News (Replace YOUR_NEWS_API_KEY with a valid API Key)
+        async function fetchNews() {
+            const newsList = document.getElementById("newsList");
+            newsList.innerHTML = "Loading news...";
+            try {
+                let response = await fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=YOUR_NEWS_API_KEY");
+                let data = await response.json();
+                newsList.innerHTML = "";
+                data.articles.slice(0, 5).forEach(article => {
+                    let li = document.createElement("li");
+                    li.innerHTML = `<a href="${article.url}" target="_blank">${article.title}</a>`;
+                    newsList.appendChild(li);
+                });
+            } catch (error) {
+                newsList.innerHTML = "Failed to load news.";
+            }
+        }
+        fetchNews();
 
         // Task Manager
         function addTask() {
@@ -208,36 +218,6 @@
             taskInput.value = "";
         }
 
-        // Load Pyodide (Python Execution)
-        async function loadPyodideRuntime() {
-            window.pyodide = await loadPyodide();
-            console.log("✅ Pyodide successfully loaded!");
-        }
-        loadPyodideRuntime();
-
-        async function runPython() {
-            let code = document.getElementById("pythonCode").value;
-            let outputElement = document.getElementById("pythonOutput");
-
-            if (!window.pyodide) {
-                outputElement.textContent = "⚠ Pyodide is still loading. Please wait...";
-                return;
-            }
-
-            try {
-                await window.pyodide.runPython(`
-import sys
-from io import StringIO
-sys.stdout = sys.stderr = output_stream = StringIO()
-                `);
-
-                await window.pyodide.runPython(code);
-                let output = await window.pyodide.runPython("output_stream.getvalue()");
-                outputElement.textContent = output || "✅ Code executed successfully, but no output.";
-            } catch (error) {
-                outputElement.textContent = "❌ Error: " + error.message;
-            }
-        }
     </script>
 </body>
 </html>
