@@ -132,40 +132,29 @@
             <h3>📰 Latest News</h3>
             <ul id="newsList">Loading news...</ul>
         </section>
+
+        <!-- Code Editors -->
+        <section class="code-editor">
+            <h3>Live Code Editor</h3>
+            <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
+            <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
+            <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
+            <button onclick="runCode()">Run Code</button>
+            <iframe id="output"></iframe>
+        </section>
     </main>
 
     <script>
-        // Fetch Quote of the Day
-        async function fetchQuote() {
-            const quoteBox = document.getElementById("quoteBox");
-            try {
-                let response = await fetch("https://api.quotable.io/random");
-                let data = await response.json();
-                quoteBox.textContent = `"${data.content}" - ${data.author}`;
-            } catch (error) {
-                quoteBox.textContent = "❌ Failed to load quote.";
-            }
+        function runCode() {
+            let htmlCode = document.getElementById("htmlCode").value;
+            let cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
+            let jsCode = "<script>" + document.getElementById("jsCode").value + "<\/script>";
+            
+            let output = document.getElementById("output").contentWindow.document;
+            output.open();
+            output.write(htmlCode + cssCode + jsCode);
+            output.close();
         }
-        fetchQuote();
-
-        // Fetch News Feed
-        async function fetchNews() {
-            const newsList = document.getElementById("newsList");
-            newsList.innerHTML = "Loading news...";
-            try {
-                let response = await fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=8d79c0e6f806452790e90d83489a8294");
-                let data = await response.json();
-                newsList.innerHTML = "";
-                data.articles.slice(0, 5).forEach(article => {
-                    let li = document.createElement("li");
-                    li.innerHTML = `<a href="${article.url}" target="_blank">${article.title}</a>`;
-                    newsList.appendChild(li);
-                });
-            } catch (error) {
-                newsList.innerHTML = "❌ Failed to load news.";
-            }
-        }
-        fetchNews();
     </script>
 </body>
 </html>
