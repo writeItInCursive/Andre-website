@@ -93,7 +93,6 @@
             font-size: 22px;
             text-align: center;
         }
-
     </style>
 </head>
 <body>
@@ -148,6 +147,25 @@
             }
         }
         fetchQuote();
+
+        // Fetch News Feed
+        async function fetchNews() {
+            const newsList = document.getElementById("newsList");
+            newsList.innerHTML = "Loading news...";
+            try {
+                let response = await fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=8d79c0e6f806452790e90d83489a8294");
+                let data = await response.json();
+                newsList.innerHTML = "";
+                data.articles.slice(0, 5).forEach(article => {
+                    let li = document.createElement("li");
+                    li.innerHTML = `<a href="${article.url}" target="_blank">${article.title}</a>`;
+                    newsList.appendChild(li);
+                });
+            } catch (error) {
+                newsList.innerHTML = "❌ Failed to load news.";
+            }
+        }
+        fetchNews();
     </script>
 </body>
 </html>
