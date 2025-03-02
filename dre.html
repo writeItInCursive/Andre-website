@@ -15,39 +15,21 @@
             margin: 0;
             padding: 0;
             font-size: 20px;
-        }
-
-        /* Top Navigation Bar */
-        .top-nav {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(90deg, #fb4f14, #000000);
-            padding: 15px 25px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .top-nav .logo img {
-            width: 50px;
-            height: auto;
         }
 
         /* Sidebar Navigation */
         .sidebar {
-            position: fixed;
-            left: 0;
-            top: 70px;
             width: 240px;
             height: 100vh;
             background: linear-gradient(180deg, #fb4f14, #000000);
             display: flex;
             flex-direction: column;
             padding-top: 15px;
-            transition: width 0.3s ease;
+            font-size: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
         }
 
         .sidebar a {
@@ -70,42 +52,20 @@
 
         /* Main Content */
         main {
-            margin-left: 250px;
+            margin-left: 260px;
             padding: 25px;
-            padding-top: 90px;
-            width: calc(100% - 250px);
+            width: calc(100% - 260px);
             box-sizing: border-box;
-            transition: margin-left 0.3s ease, width 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        /* Collapsible Sidebar */
-        .collapsed {
-            width: 60px;
-        }
-
-        .collapsed + main {
-            margin-left: 70px;
-            width: calc(100% - 70px);
-        }
-
-        /* Dashboard Sections */
-        .dashboard, .code-editor, .news-feed {
+        .dashboard, .task-manager, .news-feed {
             background: #ffffff;
             padding: 18px;
             border-radius: 5px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-        }
-
-        .quote-box {
-            text-align: center;
-            font-size: 22px;
-            font-style: italic;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 15px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .news-feed ul {
@@ -124,70 +84,47 @@
             color: #fb4f14;
             font-weight: bold;
         }
-
     </style>
 </head>
 <body>
-    <!-- Top Navigation -->
-    <header class="top-nav">
-        <div class="logo"><img src="Thumbnails/Wlogo3.png" alt="Logo"></div>
-    </header>
-
-    <!-- Inspirational Quote -->
-    <div class="quote-box" id="quoteBox">Loading quote...</div>
-
-    <!-- News Feed -->
-    <div class="news-feed">
-        <h3>📰 Latest News</h3>
-        <ul id="newsList">Loading news...</ul>
-    </div>
-
     <!-- Sidebar Navigation -->
-    <aside class="sidebar" id="sidebar">
-        <button id="toggleSidebar">☰</button>
+    <aside class="sidebar">
         <a href="dre.html"><b>HOME</b></a>
         <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+        <a href="https://www.youtube.com/" target="_blank">YouTube</a>
         <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+        <a href="https://github.com/writeItInCursive/Andre-website" target="_blank">GitHub</a>
+        <a href="https://www.office.com/" target="_blank">Office 365</a>
+        <a href="https://www.amazon.com/" target="_blank">Amazon</a>
+        <a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>
+        <a href="https://open.spotify.com/" target="_blank">Spotify</a>
     </aside>
 
     <!-- Main Content -->
     <main>
+        <!-- Welcome Section -->
         <section class="dashboard">
             <h2>🌟 Welcome to Your Dashboard 🚀</h2>
             <p>Access your favorite tools, test code, and explore new ideas.</p>
         </section>
 
         <!-- Task Manager -->
-        <section class="dashboard">
+        <section class="task-manager">
             <h3>✅ Task Manager</h3>
             <input type="text" id="taskInput" placeholder="Enter a task...">
             <button onclick="addTask()">Add Task</button>
             <ul id="taskList"></ul>
         </section>
+
+        <!-- News Feed -->
+        <section class="news-feed" id="newsFeed">
+            <h3>📰 Latest News</h3>
+            <ul id="newsList">Loading news...</ul>
+        </section>
     </main>
 
     <script>
-        // Toggle Sidebar
-        document.getElementById("toggleSidebar").addEventListener("click", function () {
-            const sidebar = document.getElementById("sidebar");
-            sidebar.classList.toggle("collapsed");
-        });
-
-        // Inspirational Quotes
-        const quotes = [
-            "Believe you can and you're halfway there.",
-            "The only way to do great work is to love what you do.",
-            "You miss 100% of the shots you don't take.",
-            "Success is not the key to happiness. Happiness is the key to success.",
-            "Do what you can, with what you have, where you are."
-        ];
-        function displayQuote() {
-            const quoteBox = document.getElementById("quoteBox");
-            quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
-        }
-        displayQuote();
-
-        // Fetch News (Replace YOUR_NEWS_API_KEY with a valid API Key)
+        // Fetch News
         async function fetchNews() {
             const newsList = document.getElementById("newsList");
             newsList.innerHTML = "Loading news...";
@@ -213,11 +150,14 @@
             if (taskInput.value.trim() === "") return;
             
             let li = document.createElement("li");
-            li.innerHTML = `${taskInput.value} <button onclick="this.parentElement.remove()">❌</button>`;
+            li.innerHTML = `${taskInput.value} <button class="remove-task" onclick="removeTask(this)">❌</button>`;
             taskList.appendChild(li);
             taskInput.value = "";
         }
 
+        function removeTask(button) {
+            button.parentElement.remove();
+        }
     </script>
 </body>
 </html>
